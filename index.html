@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MediBed - Hospital Bed Monitoring</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- SIDEBAR --> 
+<aside class="sidebar">
+
+    <div class="brand">
+        <div class="brand-icon">✚</div>
+
+        <div> 
+            <h2>MediBed</h2>
+            <p>SMART HEALTHCARE</p>
+        </div>
+    </div>
+
+    <div class="menu-title">NAVIGATION</div>
+
+    <nav>
+
+        <a href="#" class="menu active" onclick="showPage('dashboard')">
+            📊 <span>Dashboard</span>
+        </a>
+
+        <a href="#" class="menu" onclick="showPage('beds')">
+            🛏️ <span>Bed Monitoring</span>
+        </a>
+
+        <a href="#" class="menu" onclick="showPage('management')">
+            🏥 <span>Bed Management</span>
+        </a>
+
+        <a href="#" class="menu" onclick="showPage('alerts')">
+            🚨 <span>Emergency Alerts</span>
+        </a>
+
+        <a href="#" class="menu" onclick="showPage('patients')">
+            👨‍⚕️ <span>Patient Status</span>
+        </a>
+
+        <a href="#" class="menu" onclick="showPage('analytics')">
+            📈 <span>Analytics</span>
+        </a>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+        <div class="online">
+            <span></span>
+            System Online
+        </div>
+
+        <small>v1.0 • IoT Healthcare</small>
+    </div>
+
+</aside>
+
+
+<!-- MAIN -->
+<main class="main">
+
+    <!-- TOP HEADER -->
+    <header class="topbar">
+
+        <h3 id="topTitle">Dashboard</h3>
+
+        <div class="online top-online">
+            <span></span>
+            System Online
+        </div>
+
+    </header>
+
+
+    <!-- DASHBOARD PAGE -->
+    <section id="dashboard" class="page active-page">
+
+        <div class="page-heading">
+
+            <h1>MediBed Dashboard</h1>
+
+            <p>
+                Real-time overview of hospital bed availability and occupancy
+            </p>
+
+        </div>
+
+
+        <!-- STAT CARDS -->
+        <div class="stats">
+
+            <div class="stat-card blue">
+
+                <div class="stat-icon">🛏️</div>
+
+                <div>
+                    <h2>12</h2>
+                    <p>Total Beds</p>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card green">
+
+                <div class="stat-icon">✓</div>
+
+                <div>
+                    <h2>6</h2>
+                    <p>Available Beds</p>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card orange">
+
+                <div class="stat-icon">●</div>
+
+                <div>
+                    <h2>5</h2>
+                    <p>Occupied Beds</p>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card red">
+
+                <div class="stat-icon">!</div>
+
+                <div>
+                    <h2>1</h2>
+                    <p>Emergency</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- LIVE BED SECTION -->
+        <div class="panel">
+
+            <div class="panel-heading">
+
+                <div>
+                    <h2>Live Bed Monitoring</h2>
+
+                    <p>
+                        Current status of hospital beds
+                    </p>
+                </div>
+
+                <button onclick="refreshData()" class="primary-btn">
+                    ↻ Refresh
+                </button>
+
+            </div>
+
+
+            <div class="bed-grid">
+
+                <div class="bed-card available">
+
+                    <div class="bed-header">
+                        <strong>BED 01</strong>
+                        <span>AVAILABLE</span>
+                    </div>
+
+                    <div class="bed-symbol">🛏️</div>
+
+                    <h3>General Ward</h3>
+
+                    <p>Sensor: Connected</p>
+
+                </div>
+
+
+                <div class="bed-card occupied">
+
+                    <div class="bed-header">
+                        <strong>BED 02</strong>
+                        <span>OCCUPIED</span>
+                    </div>
+
+                    <div class="bed-symbol">🛏️</div>
+
+                    <h3>General Ward</h3>
+
+                    <p>Sensor: Connected</p>
+
+                </div>
+
+
+                <div class="bed-card available">
+
+                    <div class="bed-header">
+                        <strong>BED 03</strong>
+                        <span>AVAILABLE</span>
+                    </div>
+
+                    <div class="bed-symbol">🛏️</div>
+
+                    <h3>General Ward</h3>
+
+                    <p>Sensor: Connected</p>
+
+                </div>
+
+
+                <div class="bed-card emergency">
+
+                    <div class="bed-header">
+                        <strong>BED 04</strong>
+                        <span>EMERGENCY</span>
+                    </div>
+
+                    <div class="bed-symbol">🚨</div>
+
+                    <h3>Emergency Ward</h3>
+
+                    <p>Immediate attention required</p>
+
+                </div>
+
+
+                <div class="bed-card occupied">
+
+                    <div class="bed-header">
+                        <strong>BED 05</strong>
+                        <span>OCCUPIED</span>
+                    </div>
+
+                    <div class="bed-symbol">🛏️</div>
+
+                    <h3>ICU</h3>
+
+                    <p>Sensor: Connected</p>
+
+                </div>
+
+
+                <div class="bed-card available">
+
+                    <div class="bed-header">
+                        <strong>BED 06</strong>
+                        <span>AVAILABLE</span>
+                    </div>
+
+                    <div class="bed-symbol">🛏️</div>
+
+                    <h3>General Ward</h3>
+
+                    <p>Sensor: Connected</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOTTOM GRID -->
+        <div class="bottom-grid">
+
+            <div class="panel">
+
+                <h2>Bed Occupancy</h2>
+
+                <p class="subtitle">
+                    Current hospital capacity
+                </p>
+
+                <div class="occupancy">
+
+                    <div class="circle">
+                        <strong>42%</strong>
+                        <span>Occupied</span>
+                    </div>
+
+                    <div class="legend">
+
+                        <p>
+                            <i class="green-dot"></i>
+                            Available
+                            <strong>6</strong>
+                        </p>
+
+                        <p>
+                            <i class="orange-dot"></i>
+                            Occupied
+                            <strong>5</strong>
+                        </p>
+
+                        <p>
+                            <i class="red-dot"></i>
+                            Emergency
+                            <strong>1</strong>
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="panel emergency-box">
+
+                <h2>🚨 Emergency Alert</h2>
+
+                <p class="subtitle">
+                    Immediate attention required
+                </p>
+
+                <div class="alert">
+
+                    <strong>Bed 04</strong>
+
+                    <p>
+                        Emergency condition detected.
+                        Please check the patient immediately.
+                    </p>
+
+                    <button onclick="viewAlert()">
+                        View Alert
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- BED MONITORING -->
+    <section id="beds" class="page">
+
+        <div class="page-heading">
+
+            <h1>Bed Monitoring</h1>
+
+            <p>
+                Monitor every hospital bed in real time
+            </p>
+
+        </div>
+
+        <div class="panel">
+
+            <h2>All Hospital Beds</h2>
+
+            <div class="table">
+
+                <div class="table-row table-head">
+
+                    <span>BED ID</span>
+                    <span>WARD</span>
+                    <span>STATUS</span>
+                    <span>SENSOR</span>
+
+                </div>
+
+
+                <div class="table-row">
+
+                    <span>01</span>
+                    <span>General Ward</span>
+                    <span class="badge available-badge">
+                        Available
+                    </span>
+                    <span>Connected</span>
+
+                </div>
+
+
+                <div class="table-row">
+
+                    <span>02</span>
+                    <span>General Ward</span>
+                    <span class="badge occupied-badge">
+                        Occupied
+                    </span>
+                    <span>Connected</span>
+
+                </div>
+
+
+                <div class="table-row">
+
+                    <span>03</span>
+                    <span>General Ward</span>
+                    <span class="badge available-badge">
+                        Available
+                    </span>
+                    <span>Connected</span>
+
+                </div>
+
+
+                <div class="table-row">
+
+                    <span>04</span>
+                    <span>Emergency</span>
+                    <span class="badge emergency-badge">
+                        Emergency
+                    </span>
+                    <span>Alert</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- BED MANAGEMENT -->
+    <section id="management" class="page">
+
+        <div class="page-heading">
+
+            <h1>Bed Management</h1>
+
+            <p>
+                Manage hospital wards and bed information
+            </p>
+
+        </div>
+
+        <div class="management-grid">
+
+            <div class="panel">
+
+                <h2>Ward Overview</h2>
+
+                <div class="ward">
+
+                    <div>
+                        <strong>General Ward</strong>
+                        <p>8 Beds</p>
+                    </div>
+
+                    <span class="ward-green">
+                        4 Available
+                    </span>
+
+                </div>
+
+
+                <div class="ward">
+
+                    <div>
+                        <strong>ICU</strong>
+                        <p>2 Beds</p>
+                    </div>
+
+                    <span class="ward-orange">
+                        1 Occupied
+                    </span>
+
+                </div>
+
+
+                <div class="ward">
+
+                    <div>
+                        <strong>Emergency Ward</strong>
+                        <p>2 Beds</p>
+                    </div>
+
+                    <span class="ward-red">
+                        1 Alert
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="panel">
+
+                <h2>Add Bed</h2>
+
+                <input
+                    type="text"
+                    placeholder="Enter Bed ID"
+                    class="input"
+                >
+
+                <input
+                    type="text"
+                    placeholder="Enter Ward"
+                    class="input"
+                >
+
+                <button class="primary-btn full">
+                    Add Bed
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- EMERGENCY ALERTS -->
+    <section id="alerts" class="page">
+
+        <div class="page-heading">
+
+            <h1>Emergency Alerts</h1>
+
+            <p>
+                Monitor critical bed alerts
+            </p>
+
+        </div>
+
+        <div class="panel">
+
+            <div class="big-alert">
+
+                <div class="alert-circle">!</div>
+
+                <div>
+
+                    <h2>Bed 04 Emergency</h2>
+
+                    <p>
+                        Emergency condition detected.
+                    </p>
+
+                    <small>
+                        Status: Active • Emergency Ward
+                    </small>
+
+                </div>
+
+                <button onclick="viewAlert()">
+                    Check Alert
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- PATIENT STATUS -->
+    <section id="patients" class="page">
+
+        <div class="page-heading">
+
+            <h1>Patient Status</h1>
+
+            <p>
+                Current occupancy information
+            </p>
+
+        </div>
+
+        <div class="panel">
+
+            <div class="patient-card">
+
+                <div class="patient-icon">👤</div>
+
+                <div>
+
+                    <h3>Bed 02</h3>
+
+                    <p>General Ward</p>
+
+                </div>
+
+                <span class="badge occupied-badge">
+                    Occupied
+                </span>
+
+            </div>
+
+
+            <div class="patient-card">
+
+                <div class="patient-icon">👤</div>
+
+                <div>
+
+                    <h3>Bed 05</h3>
+
+                    <p>ICU</p>
+
+                </div>
+
+                <span class="badge occupied-badge">
+                    Occupied
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ANALYTICS -->
+    <section id="analytics" class="page">
+
+        <div class="page-heading">
+
+            <h1>Analytics</h1>
+
+            <p>
+                Hospital bed utilization overview
+            </p>
+
+        </div>
+
+        <div class="stats">
+
+            <div class="stat-card blue">
+
+                <div class="stat-icon">📊</div>
+
+                <div>
+                    <h2>42%</h2>
+                    <p>Occupancy Rate</p>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card green">
+
+                <div class="stat-icon">✓</div>
+
+                <div>
+                    <h2>6</h2>
+                    <p>Available Now</p>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card orange">
+
+                <div class="stat-icon">⏱</div>
+
+                <div>
+                    <h2>78%</h2>
+                    <p>Sensor Uptime</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="panel analytics-panel">
+
+            <h2>System Performance</h2>
+
+            <div class="bar">
+
+                <span>Bed Monitoring</span>
+
+                <div>
+                    <i style="width: 90%"></i>
+                </div>
+
+                <strong>90%</strong>
+
+            </div>
+
+
+            <div class="bar">
+
+                <span>Sensor Connectivity</span>
+
+                <div>
+                    <i style="width: 96%"></i>
+                </div>
+
+                <strong>96%</strong>
+
+            </div>
+
+
+            <div class="bar">
+
+                <span>System Availability</span>
+
+                <div>
+                    <i style="width: 98%"></i>
+                </div>
+
+                <strong>98%</strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
